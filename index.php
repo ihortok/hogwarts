@@ -1,4 +1,3 @@
-<?php require_once 'config.php'; ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,28 +5,19 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Hogwarts</title>
 </head>
 <body>
 
-<?php
-$result = $mysqli->query("SELECT * FROM house") or die($mysqli->error);
-var_dump($result);
-?>
+<form class="form-signin" method="post" id="login-form">
+    <input type="text" placeholder="username" name="user_name" id="user_name" required>
+    <input type="password" placeholder="password" name="password" id="password" required>
+    <button type="submit" name="btn-login" id="btn-login">Sign In</button>
 
-<?php
-while ($row = $result->fetch_assoc()) {
-    ?>
-    <p><?= $row['name']; ?></p>
-    <?php
-}
-?>
+</form>
 
-<h1>Hello, World!</h1>
-
-
-<script src="js/main.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 
 </body>
 </html>
