@@ -1,3 +1,4 @@
+<?php require_once 'config.php'; ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,7 +11,21 @@
 </head>
 <body>
 
+<?php
+$result = $mysqli->query("SELECT * FROM house") or die($mysqli->error);
+var_dump($result);
+?>
+
+<?php
+while ($row = $result->fetch_assoc()) {
+    ?>
+    <p><?= $row['name']; ?></p>
+    <?php
+}
+?>
+
 <h1>Hello, World!</h1>
+
 
 <script src="js/main.js"></script>
 
