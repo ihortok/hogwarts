@@ -10,8 +10,10 @@
 <body>
 
 <form class="form-signin" method="post" id="login-form">
-    <input type="text" placeholder="username" name="user_name" id="user_name" required>
-    <input type="password" placeholder="password" name="password" id="password" required>
+    <input type="text" placeholder="nickname" name="nickname" id="nickname" required>
+
+    <!--    <input type="text" placeholder="username" name="user_name" id="user_name" required>-->
+    <!--    <input type="password" placeholder="password" name="password" id="password" required>-->
     <button type="submit" name="btn-login" id="btn-login">Sign In</button>
 
 </form>
