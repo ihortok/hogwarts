@@ -1,15 +1,14 @@
 $('document').ready(function () {
-
     $("#login-form").submit(function () {
         var data = $(this).serialize();
         $.ajax({
             type: 'POST',
-            url: 'login.php',
+            url: '../login.php',
             data: data,
             async: true,
             success: function (response) {
                 if (response === "success") {
-                    alert('ok');
+                    document.location = 'user.php';
                 }
                 else {
                     alert('error');
@@ -18,5 +17,4 @@ $('document').ready(function () {
         });
         return false;
     });
-
 });
