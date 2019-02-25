@@ -1,5 +1,12 @@
 $('document').ready(function () {
     /*------------ log in ------------*/
+    $("#login-form input").click(function () {
+        if ($('.error-msg').text() === "") {
+            return false;
+        }
+        $('.error-msg').text("");
+    });
+
     $("#login-form").submit(function () {
         var data = $(this).serialize();
         $.ajax({
@@ -12,7 +19,8 @@ $('document').ready(function () {
                     document.location = 'user.php';
                 }
                 else {
-                    alert('error');
+                    $(".error-msg").text("seem like you are a muggle");
+                    $("#login-form input").val("");
                 }
             }
         });
@@ -20,5 +28,5 @@ $('document').ready(function () {
     });
 
     /*------------  ------------*/
-    
+
 });

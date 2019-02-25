@@ -1,6 +1,7 @@
 <?php
 require_once 'config.php';
 session_start();
+
 $nickname = $_POST['nickname'];
 if ($nickname != "") {
     $result = $db->query("SELECT * FROM wizard WHERE nickname = '$nickname'");
