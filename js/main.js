@@ -1,4 +1,5 @@
 $('document').ready(function () {
+    /*------------ log in ------------*/
     $("#login-form").submit(function () {
         var data = $(this).serialize();
         $.ajax({
@@ -17,4 +18,7 @@ $('document').ready(function () {
         });
         return false;
     });
+
+    /*------------  ------------*/
+    
 });

@@ -1,7 +1,6 @@
 <?php include 'header.php'; ?>
 
 <?php
-session_start();
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     ?>
     <h2>qwe</h2>

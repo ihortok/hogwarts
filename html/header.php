@@ -1,3 +1,7 @@
+<?php
+require_once '../config.php';
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,3 +12,20 @@
     <title>Hogwarts</title>
 </head>
 <body>
+
+<header class="header">
+    <nav class="nav">
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="user.php">Wizard card</a></li>
+        </ul>
+    </nav>
+    <?php
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+        $result = $db->query("SELECT * FROM wizard") or die($mysqli->error);
+        ?>
+        <a href="../logout.php" id="log-out">log out</a>
+        <?php
+    }
+    ?>
+</header>
