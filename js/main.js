@@ -34,7 +34,7 @@ $('document').ready(function () {
 
     $('#choose_status').click(function (e) {
         e.preventDefault();
-        console.log($('input[name=status]:checked', '.status-form').val());
+        $("#new_wizard input[name=status]").val($('input[name=status]:checked', '.status-form').val());
         $('.status-form').hide();
         $('.register-form').show();
     });

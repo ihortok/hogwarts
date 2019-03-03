@@ -10,11 +10,25 @@ session_start();
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hogwarts</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
+    <link rel="manifest" href="../favicons/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body>
 
 <header class="header">
+    <?php
+    if (isset($_SESSION['nickname'])) {
+        ?>
+        <div>logged in user</div>
+        <?php
+    }
+    ?>
     <nav class="nav">
         <ul>
             <li><a href="index.php">Home</a></li>
@@ -22,10 +36,19 @@ session_start();
         </ul>
     </nav>
     <?php
-    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        $result = $db->query("SELECT * FROM wizard") or die($mysqli->error);
+    if (isset($_SESSION['nickname'])) {
         ?>
         <a href="../logout.php" id="log-out">log out</a>
+        <?php
+    } else {
+        ?>
+        <form class="login" method="POST" id="login-form">
+            <input type="text" placeholder="nickname" name="nickname" id="nickname" required>
+            <span class="error-msg"></span>
+            <button type="submit" name="login-btn" id="login-btn">sign in</button>
+        </form>
+
+        <button id="register-btn">sign up</button>
         <?php
     }
     ?>

@@ -11,7 +11,7 @@ if ($nickname != "") {
     $count = mysqli_num_rows($result);
 
     if ($count == 1) {
-        $_SESSION['loggedin'] = true;
+        $_SESSION['nickname'] = $row['nickname'];;
         $_SESSION['headmaster'] = $row['headmaster'];
         echo "success";
     } else {

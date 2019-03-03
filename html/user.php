@@ -1,68 +1,64 @@
 <?php include 'header.php'; ?>
 
-<h1>hello</h1>
-
 <?php
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-    $result = $db->query("SELECT * FROM wizard") or die($mysqli->error);
+if (isset($_SESSION['nickname'])) {
+    $nick = $_SESSION['nickname'];
+    $result = $db->query("SELECT * FROM wizard WHERE nickname= '$nick'") or die($db->error);
+    $row = $result->fetch_assoc();
     ?>
+    <p>Hello, <?= $row['name']; ?>!</p>
     <table>
+        <tr>
+            <td>Name:</td>
+            <td data-field="name"><?= $row['name']; ?></td>
+        </tr>
+        <tr>
+            <td>Surname:</td>
+            <td data-field="surname"><?= $row['surname']; ?></td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td data-field="age"><?= $row['age']; ?></td>
+        </tr>
+        <tr>
+            <td>Race:</td>
+            <td data-field="race"><?= $row['race']; ?></td>
+        </tr>
+        <tr>
+            <td>Sex:</td>
+            <td data-field="sex"><?= $row['sex']; ?></td>
+        </tr>
+        <tr>
+            <td>Patronum:</td>
+            <td data-field="patronum"><?= $row['patronum']; ?></td>
+        </tr>
+        <tr>
+            <td>Status:</td>
+            <td data-field="status"><?= $row['status']; ?></td>
+        </tr>
         <?php
-        while ($row = $result->fetch_assoc()) {
+        if ($row['status'] == 'teacher') {
             ?>
             <tr>
-                <td>Name:</td>
-                <td><?= $row['name']; ?></td>
-            </tr>
-            <tr>
-                <td>Surname:</td>
-                <td><?= $row['surname']; ?></td>
-            </tr>
-            <tr>
-                <td>Age:</td>
-                <td><?= $row['age']; ?></td>
-            </tr>
-            <tr>
-                <td>Race:</td>
-                <td><?= $row['race']; ?></td>
-            </tr>
-            <tr>
-                <td>Sex:</td>
-                <td><?= $row['sex']; ?></td>
-            </tr>
-            <tr>
-                <td>Patronum:</td>
-                <td><?= $row['patronum']; ?></td>
-            </tr>
-            <tr>
-                <td>Status:</td>
-                <td><?= $row['status']; ?></td>
-            </tr>
-            <tr>
                 <td>Subject:</td>
-                <td><?= $row['subject']; ?></td>
-            </tr>
-            <tr>
-                <td>House:</td>
-                <td><?= $row['house']; ?></td>
-            </tr>
-            <tr>
-                <td>Blood status:</td>
-                <td><?= $row['blood_status']; ?></td>
+                <td data-field="subject"><?= $row['subject']; ?></td>
             </tr>
             <?php
         }
         ?>
+        <tr>
+            <td>House:</td>
+            <td data-field="house"><?= $row['house']; ?></td>
+        </tr>
+        <tr>
+            <td>Blood status:</td>
+            <td data-field="blood_status"><?= $row['blood_status']; ?></td>
+        </tr>
     </table>
     <?php
 } else {
     ?>
-
-    <form class="login" method="post" id="login-form">
-        <input type="text" placeholder="nickname" name="nickname" id="nickname" required>
-        <button type="submit" name="login-btn" id="login-btn">sign In</button>
-    </form>
-
+    <h2>Dear Wizard, sigh in, please.</h2>
     <?php
 }
 ?>
