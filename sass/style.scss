@@ -5,6 +5,8 @@
 
 /*------------ header ------------*/
 .header {
+  padding: 1.5em 0;
+  background-color: $gray_header;
   .wrapper {
     @include flex_display;
     @include flex_justify_content(space-between);
@@ -15,6 +17,19 @@
   li {
     display: inline-block;
     text-transform: uppercase;
+    font-weight: bold;
+    &:first-child {
+      margin-right: 1em;
+    }
+    a {
+      display: block;
+      padding: .5em 0;
+      text-decoration: none;
+      @include animate();
+      &:hover {
+        @include box-shadow(0, 3px, 0, 0, $text_hover);
+      }
+    }
   }
 }
 

@@ -20,7 +20,8 @@
   color: #808080 !important; }
 
 body {
-  font-size: 18px; }
+  font-size: 18px;
+  color: #303435; }
 
 .wrapper {
   max-width: 1320px;
@@ -31,6 +32,11 @@ body {
 .info-section {
   padding-top: 1em;
   overflow: auto; }
+
+a {
+  color: #303435; }
+  a:hover {
+    color: #336aae; }
 
 table {
   width: 100%;
@@ -58,12 +64,34 @@ table {
     padding: .5em;
     text-align: center; }
 
+form input[type=text] {
+  padding: .5em .7em;
+  border: 1px solid rgba(74, 71, 75, 0.83);
+  line-height: 1.4em;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  -webkit-box-shadow: 3px 3px 5px 0 rgba(74, 71, 75, 0.83);
+  -moz-box-shadow: 3px 3px 5px 0 rgba(74, 71, 75, 0.83);
+  box-shadow: 3px 3px 5px 0 rgba(74, 71, 75, 0.83);
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s; }
+  form input[type=text]:focus {
+    outline: none;
+    border-color: #336aae;
+    -webkit-box-shadow: 3px 3px 5px 0 #336aae;
+    -moz-box-shadow: 3px 3px 5px 0 #336aae;
+    box-shadow: 3px 3px 5px 0 #336aae; }
+
 button {
   background-color: #5ab86b;
   color: #fff;
   border: none;
   padding: .5em .7em;
   outline: none !important;
+  line-height: 1.4em;
   -webkit-border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   border-radius: 0.5em;
@@ -80,22 +108,40 @@ button {
     box-shadow: none; }
 
 /*------------ header ------------*/
-.header .wrapper {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -moz-flex;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: space-between;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: space-between;
-  -ms-flex-pack: space-between;
-  justify-content: space-between; }
+.header {
+  padding: 1.5em 0;
+  background-color: rgba(223, 216, 226, 0.79); }
+  .header .wrapper {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: space-between;
+    -webkit-justify-content: space-between;
+    -moz-box-pack: space-between;
+    -ms-flex-pack: space-between;
+    justify-content: space-between; }
 
 .nav li {
   display: inline-block;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  font-weight: bold; }
+  .nav li:first-child {
+    margin-right: 1em; }
+  .nav li a {
+    display: block;
+    padding: .5em 0;
+    text-decoration: none;
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s; }
+    .nav li a:hover {
+      -webkit-box-shadow: 0 3px 0 0 #336aae;
+      -moz-box-shadow: 0 3px 0 0 #336aae;
+      box-shadow: 0 3px 0 0 #336aae; }
 
 /*------------ footer ------------*/
 .status-form {

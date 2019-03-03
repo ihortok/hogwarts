@@ -1,5 +1,6 @@
 body {
   font-size: 18px;
+  color: $text;
 }
 
 .wrapper {
@@ -13,6 +14,13 @@ body {
 .info-section {
   padding-top: 1em;
   overflow: auto;
+}
+
+a {
+  color: $text;
+  &:hover {
+    color: $text_hover;
+  }
 }
 
 table {
@@ -55,6 +63,22 @@ table {
   th, td {
     padding: .5em;
     text-align: center;
+  }
+}
+
+form {
+  input[type=text] {
+    padding: .5em .7em;
+    border: 1px solid $gray_thead;
+    line-height: 1.4em;
+    @include radius();
+    @include box-shadow(3px, 3px, 5px, 0, $gray_thead);
+    @include animate();
+    &:focus {
+      outline: none;
+      border-color: $text_hover;
+      @include box-shadow(3px, 3px, 5px, 0, $text_hover);
+    }
   }
 }
 
