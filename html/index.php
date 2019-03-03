@@ -84,6 +84,13 @@
                                         <td><?= $row['patronum']; ?></td>
                                         <td><?= $row['house']; ?></td>
                                         <td><?= $row['blood_status']; ?></td>
+                                        <?php
+                                        if (isset($_SESSION['headmaster']) && $_SESSION['headmaster'] == 1) {
+                                            ?>
+                                            <td class="remove"><a href="#"><i class="fas fa-times"></i></a></td>
+                                            <?php
+                                        }
+                                        ?>
                                     </tr>
                                     <?php
                                 }
@@ -136,12 +143,23 @@
                                         <td><?= $row['subject']; ?></td>
                                         <td><?= $row['house']; ?></td>
                                         <td><?= $row['blood_status']; ?></td>
+                                        <?php
+                                        if (isset($_SESSION['headmaster']) && $_SESSION['headmaster'] == 1) {
+                                            ?>
+                                            <td class="remove"><a href="#"><i class="fas fa-times"></i></a></td>
+                                            <?php
+                                        }
+                                        ?>
                                     </tr>
                                     <?php
                                 }
                                 ?>
                                 </tbody>
                             </table>
+                            <?php
+                        } else {
+                            ?>
+                            <small>list is empty</small>
                             <?php
                         }
                         if (isset($_SESSION['headmaster']) && $_SESSION['headmaster'] == 1) {
