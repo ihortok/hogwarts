@@ -19,7 +19,7 @@ $('document').ready(function () {
                     document.location = 'user.php';
                 }
                 else {
-                    $(".error-msg").text("seem like you are a muggle");
+                    $(".error-msg").text("seems like you are a muggle");
                     $("#login-form input").val("");
                 }
             }

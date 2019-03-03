@@ -33,6 +33,31 @@
   }
 }
 
+.header_enter {
+  form {
+    input {
+      margin-right: .5em;
+    }
+    span {
+      margin: 0 .5em;
+    }
+  }
+  #login-btn {
+    @include button();
+  }
+  #register-btn {
+    @include button($yellow, $text, $yellow_dark);
+  }
+  .error-msg {
+    color: $red;
+  }
+}
+
+/*------------ main ------------*/
+.main {
+  padding: 2em 0;
+}
+
 /*------------ footer ------------*/
 .status-form {
   display: none;

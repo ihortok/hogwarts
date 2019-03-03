@@ -21,7 +21,8 @@
 
 body {
   font-size: 18px;
-  color: #303435; }
+  color: #303435;
+  line-height: 1.4; }
 
 .wrapper {
   max-width: 1320px;
@@ -30,7 +31,7 @@ body {
     padding: 0 15px; }
 
 .info-section {
-  padding-top: 1em;
+  padding: 1em 0;
   overflow: auto; }
 
 a {
@@ -41,21 +42,25 @@ a {
 table {
   width: 100%;
   overflow: auto; }
-  table thead tr {
-    background-color: rgba(74, 71, 75, 0.83);
-    color: #fff; }
-  table tbody tr:nth-child(even) {
-    background-color: rgba(249, 242, 252, 0.79); }
-    table tbody tr:nth-child(even) td {
-      border-left: 1px solid #000000; }
-      table tbody tr:nth-child(even) td:first-child {
-        border: none; }
-  table tbody tr:nth-child(odd) {
-    background-color: rgba(90, 252, 255, 0.3); }
-    table tbody tr:nth-child(odd) td {
-      border-left: 1px solid rgba(249, 242, 252, 0.79); }
-      table tbody tr:nth-child(odd) td:first-child {
-        border: none; }
+  table thead {
+    line-height: 1.2; }
+    table thead tr {
+      background-color: rgba(74, 71, 75, 0.83);
+      color: #fff; }
+  table tbody {
+    line-height: 1.4; }
+    table tbody tr:nth-child(even) {
+      background-color: rgba(249, 242, 252, 0.79); }
+      table tbody tr:nth-child(even) td {
+        border-left: 1px solid rgba(90, 252, 255, 0.3); }
+        table tbody tr:nth-child(even) td:first-child {
+          border: none; }
+    table tbody tr:nth-child(odd) {
+      background-color: rgba(90, 252, 255, 0.3); }
+      table tbody tr:nth-child(odd) td {
+        border-left: 1px solid rgba(249, 242, 252, 0.79); }
+        table tbody tr:nth-child(odd) td:first-child {
+          border: none; }
   table th {
     border-right: 1px solid #fff; }
     table th:last-child {
@@ -71,9 +76,9 @@ form input[type=text] {
   -webkit-border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   border-radius: 0.5em;
-  -webkit-box-shadow: 3px 3px 5px 0 rgba(74, 71, 75, 0.83);
-  -moz-box-shadow: 3px 3px 5px 0 rgba(74, 71, 75, 0.83);
-  box-shadow: 3px 3px 5px 0 rgba(74, 71, 75, 0.83);
+  -webkit-box-shadow: 2px 2px 5px 0 rgba(74, 71, 75, 0.83);
+  -moz-box-shadow: 2px 2px 5px 0 rgba(74, 71, 75, 0.83);
+  box-shadow: 2px 2px 5px 0 rgba(74, 71, 75, 0.83);
   -webkit-transition: all 0.5s ease 0s;
   -moz-transition: all 0.5s ease 0s;
   -o-transition: all 0.5s ease 0s;
@@ -84,28 +89,6 @@ form input[type=text] {
     -webkit-box-shadow: 3px 3px 5px 0 #336aae;
     -moz-box-shadow: 3px 3px 5px 0 #336aae;
     box-shadow: 3px 3px 5px 0 #336aae; }
-
-button {
-  background-color: #5ab86b;
-  color: #fff;
-  border: none;
-  padding: .5em .7em;
-  outline: none !important;
-  line-height: 1.4em;
-  -webkit-border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  border-radius: 0.5em;
-  -webkit-transition: all 0.5s ease 0s;
-  -moz-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
-  -webkit-box-shadow: 3px 3px 5px 0 #3a7443;
-  -moz-box-shadow: 3px 3px 5px 0 #3a7443;
-  box-shadow: 3px 3px 5px 0 #3a7443; }
-  button:hover {
-    background-color: #3a7443; }
-  button:active {
-    box-shadow: none; }
 
 /*------------ header ------------*/
 .header {
@@ -142,6 +125,59 @@ button {
       -webkit-box-shadow: 0 3px 0 0 #336aae;
       -moz-box-shadow: 0 3px 0 0 #336aae;
       box-shadow: 0 3px 0 0 #336aae; }
+
+.header_enter form input {
+  margin-right: .5em; }
+.header_enter form span {
+  margin: 0 .5em; }
+.header_enter #login-btn {
+  background-color: #5ab86b;
+  color: #fff;
+  padding: .5em .7em;
+  outline: none !important;
+  line-height: 1.4em;
+  border: 1px solid #5ab86b;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  -webkit-box-shadow: 2px 2px 5px 0 #3a7443;
+  -moz-box-shadow: 2px 2px 5px 0 #3a7443;
+  box-shadow: 2px 2px 5px 0 #3a7443; }
+  .header_enter #login-btn:hover {
+    background-color: #3a7443; }
+  .header_enter #login-btn:active {
+    box-shadow: none; }
+.header_enter #register-btn {
+  background-color: #f5f41c;
+  color: #303435;
+  padding: .5em .7em;
+  outline: none !important;
+  line-height: 1.4em;
+  border: 1px solid #f5f41c;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  -webkit-box-shadow: 2px 2px 5px 0 #d8d71a;
+  -moz-box-shadow: 2px 2px 5px 0 #d8d71a;
+  box-shadow: 2px 2px 5px 0 #d8d71a; }
+  .header_enter #register-btn:hover {
+    background-color: #d8d71a; }
+  .header_enter #register-btn:active {
+    box-shadow: none; }
+.header_enter .error-msg {
+  color: #e91c20; }
+
+/*------------ main ------------*/
+.main {
+  padding: 2em 0; }
 
 /*------------ footer ------------*/
 .status-form {

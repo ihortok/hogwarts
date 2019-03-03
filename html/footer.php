@@ -73,9 +73,9 @@
         <label>
             <span>Blood-status:</span>
             <select name="blood_status">
-                <option>Half-blood</option>
-                <option>Pure-blood</option>
-                <option>Muggle-born</option>
+                <option>half-blood</option>
+                <option>pure-blood</option>
+                <option>muggle-born</option>
             </select>
         </label>
         <input type="hidden" name="status">

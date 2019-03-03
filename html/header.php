@@ -46,12 +46,12 @@ session_start();
             } else {
                 ?>
                 <form class="login" method="POST" id="login-form">
+                    <small class="error-msg"></small>
                     <input type="text" placeholder="nickname" name="nickname" id="nickname" required>
-                    <span class="error-msg"></span>
                     <button type="submit" name="login-btn" id="login-btn">sign in</button>
+                    <span>or</span>
                     <button id="register-btn">sign up</button>
                 </form>
-
                 <?php
             }
             ?>

@@ -1,6 +1,7 @@
 body {
   font-size: 18px;
   color: $text;
+  line-height: 1.4;
 }
 
 .wrapper {
@@ -12,7 +13,7 @@ body {
 }
 
 .info-section {
-  padding-top: 1em;
+  padding: 1em 0;
   overflow: auto;
 }
 
@@ -27,17 +28,19 @@ table {
   width: 100%;
   overflow: auto;
   thead {
+    line-height: 1.2;
     tr {
       background-color: $gray_thead;
       color: $white;
     }
   }
   tbody {
+    line-height: 1.4;
     tr {
       &:nth-child(even) {
         background-color: $gray_table;
         td {
-          border-left: 1px solid #000000;
+          border-left: 1px solid $blue_table;
           &:first-child {
             border: none;
           }
@@ -72,7 +75,7 @@ form {
     border: 1px solid $gray_thead;
     line-height: 1.4em;
     @include radius();
-    @include box-shadow(3px, 3px, 5px, 0, $gray_thead);
+    @include box-shadow(2px, 2px, 5px, 0, $gray_thead);
     @include animate();
     &:focus {
       outline: none;
@@ -80,8 +83,4 @@ form {
       @include box-shadow(3px, 3px, 5px, 0, $text_hover);
     }
   }
-}
-
-button {
-  @include button();
 }
