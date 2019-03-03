@@ -39,6 +39,18 @@ a {
   a:hover {
     color: #336aae; }
 
+h2 {
+  font-size: 2.5em; }
+
+h3 {
+  font-size: 1.8em; }
+
+h4 {
+  font-size: 1.2em; }
+
+h2, h3, h4 {
+  text-align: center; }
+
 table {
   width: 100%;
   overflow: auto; }
@@ -93,7 +105,10 @@ form input[type=text] {
 /*------------ header ------------*/
 .header {
   padding: 1.5em 0;
-  background-color: rgba(223, 216, 226, 0.79); }
+  background-color: rgba(223, 216, 226, 0.79);
+  -webkit-box-shadow: 0 1px 5px 0 rgba(74, 71, 75, 0.83);
+  -moz-box-shadow: 0 1px 5px 0 rgba(74, 71, 75, 0.83);
+  box-shadow: 0 1px 5px 0 rgba(74, 71, 75, 0.83); }
   .header .wrapper {
     display: -webkit-box;
     display: -moz-box;
@@ -151,7 +166,7 @@ form input[type=text] {
     background-color: #3a7443; }
   .header_enter #login-btn:active {
     box-shadow: none; }
-.header_enter #register-btn {
+.header_enter .register-btn {
   background-color: #f5f41c;
   color: #303435;
   padding: .5em .7em;
@@ -168,9 +183,9 @@ form input[type=text] {
   -webkit-box-shadow: 2px 2px 5px 0 #d8d71a;
   -moz-box-shadow: 2px 2px 5px 0 #d8d71a;
   box-shadow: 2px 2px 5px 0 #d8d71a; }
-  .header_enter #register-btn:hover {
+  .header_enter .register-btn:hover {
     background-color: #d8d71a; }
-  .header_enter #register-btn:active {
+  .header_enter .register-btn:active {
     box-shadow: none; }
 .header_enter .error-msg {
   color: #e91c20; }
@@ -178,6 +193,13 @@ form input[type=text] {
 /*------------ main ------------*/
 .main {
   padding: 2em 0; }
+
+/*------------ user page ------------*/
+.user_page h3 {
+  margin: 2em 0;
+  line-height: 1.5em; }
+  .user_page h3 a {
+    color: #336aae; }
 
 /*------------ footer ------------*/
 .status-form {

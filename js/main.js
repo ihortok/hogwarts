@@ -28,7 +28,8 @@ $('document').ready(function () {
     });
 
     /*------------ new wizard buttons ------------*/
-    $('#register-btn').click(function () {
+    $('.register-btn').click(function (e) {
+        e.preventDefault();
         $('.status-form').show();
     });
 

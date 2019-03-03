@@ -17,6 +17,7 @@ session_start();
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/fontawesome.all.min.css">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -50,7 +51,7 @@ session_start();
                     <input type="text" placeholder="nickname" name="nickname" id="nickname" required>
                     <button type="submit" name="login-btn" id="login-btn">sign in</button>
                     <span>or</span>
-                    <button id="register-btn">sign up</button>
+                    <button class="register-btn">sign up</button>
                 </form>
                 <?php
             }
