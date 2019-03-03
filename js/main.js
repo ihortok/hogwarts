@@ -55,7 +55,7 @@ $('document').ready(function () {
         $(this).parents('.popup').removeAttr('style');
     });
 
-    /*------------ new wizard ------------*/
+    /*------------ add/remove/update wizard ------------*/
     $("#new_wizard").submit(function () {
         var name = $(this).find("input[name='name']").val();
         var data = $(this).serialize();
@@ -67,6 +67,27 @@ $('document').ready(function () {
             success: function (response) {
                 if (response === "success") {
                     $("body").append("<p>" + name + "</p>")
+                }
+                else {
+                    $("body").append("<p>error</p>")
+                }
+            }
+        });
+        return false;
+    });
+
+    $(".remove a").click(function (e) {
+        e.preventDefault();
+        var nick = $(this).attr('href');
+        console.log(nick);
+        $.ajax({
+            type: 'POST',
+            url: '../process.php',
+            data: nick,
+            async: true,
+            success: function (response) {
+                if (response === "success") {
+                    $("body").append("<p>" + nick + "</p>")
                 }
                 else {
                     $("body").append("<p>error</p>")

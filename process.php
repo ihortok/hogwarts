@@ -26,10 +26,8 @@ if (isset($_POST['nickname'])) {
     echo "success";
 }
 
-if (isset($_GET['delete'])) {
-    echo 'qwe';
-    $nickname = $_GET['delete'];
+if (isset($_POST['delete'])) {
+    echo 'success';
+    $nickname = $_POST['delete'];
     $db->query("DELETE FROM wizard WHERE nickname='$nickname'") or die($db->error);
-
-    header("location:index.php");
 }

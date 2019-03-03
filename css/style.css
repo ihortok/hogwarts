@@ -370,7 +370,7 @@ button.new_wizard {
     .register-form #reset_wizard:active {
       box-shadow: none; }
     .register-form #reset_wizard:hover {
-      color: rgba(249, 242, 252, 0.79); }
+      color: #fff; }
   .register-form form label {
     display: block;
     width: 50%;

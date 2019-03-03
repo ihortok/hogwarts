@@ -102,7 +102,7 @@
   #reset_wizard {
     @include button($gray_header, $text, $gray_thead);
     &:hover {
-      color: $gray_table;
+      color: $white;
     }
   }
   form {
