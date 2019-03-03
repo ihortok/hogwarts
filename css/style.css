@@ -1,3 +1,14 @@
+/*------------ imports ------------*/
+body {
+  font-size: 18px; }
+
+.wrapper {
+  max-width: 1320px;
+  overflow: hidden;
+  margin: auto; }
+  .wrapper.wrapper_container {
+    padding: 0 15px; }
+
 /*------------ footer ------------*/
 .status-form {
   display: none; }
@@ -7,5 +18,7 @@
 
 form label {
   display: block; }
+
+/*------------ imports ------------*/
 
 /*# sourceMappingURL=style.css.map */

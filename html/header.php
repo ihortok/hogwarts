@@ -22,34 +22,36 @@ session_start();
 <body>
 
 <header class="header">
-    <?php
-    if (isset($_SESSION['nickname'])) {
-        ?>
-        <div>logged in user</div>
+    <div class="wrapper wrapper_container">
         <?php
-    }
-    ?>
-    <nav class="nav">
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="user.php">Wizard card</a></li>
-        </ul>
-    </nav>
-    <?php
-    if (isset($_SESSION['nickname'])) {
+        if (isset($_SESSION['nickname'])) {
+            ?>
+            <div>logged in user</div>
+            <?php
+        }
         ?>
-        <a href="../logout.php" id="log-out">log out</a>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="user.php">Wizard card</a></li>
+            </ul>
+        </nav>
         <?php
-    } else {
-        ?>
-        <form class="login" method="POST" id="login-form">
-            <input type="text" placeholder="nickname" name="nickname" id="nickname" required>
-            <span class="error-msg"></span>
-            <button type="submit" name="login-btn" id="login-btn">sign in</button>
-        </form>
+        if (isset($_SESSION['nickname'])) {
+            ?>
+            <a href="../logout.php" id="log-out">log out</a>
+            <?php
+        } else {
+            ?>
+            <form class="login" method="POST" id="login-form">
+                <input type="text" placeholder="nickname" name="nickname" id="nickname" required>
+                <span class="error-msg"></span>
+                <button type="submit" name="login-btn" id="login-btn">sign in</button>
+            </form>
 
-        <button id="register-btn">sign up</button>
-        <?php
-    }
-    ?>
+            <button id="register-btn">sign up</button>
+            <?php
+        }
+        ?>
+    </div>
 </header>

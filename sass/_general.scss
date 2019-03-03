@@ -1,0 +1,25 @@
+body {
+  font-size: 18px;
+}
+
+.wrapper {
+  max-width: 1320px;
+  overflow: hidden;
+  margin: auto;
+  &.wrapper_container {
+    padding: 0 15px;
+  }
+}
+
+table {
+  tbody {
+    tr {
+      &:nth-child(even) {
+
+      }
+      &:nth-child(even) {
+
+      }
+    }
+  }
+}
