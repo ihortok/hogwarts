@@ -121,13 +121,6 @@
                                     <th>Subject</th>
                                     <th>House</th>
                                     <th>Blood-status</th>
-                                    <?php
-                                    if (isset($_SESSION['headmaster']) && $_SESSION['headmaster'] == 1) {
-                                        ?>
-                                        <th></th>
-                                        <?
-                                    }
-                                    ?>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -143,23 +136,12 @@
                                         <td><?= $row['subject']; ?></td>
                                         <td><?= $row['house']; ?></td>
                                         <td><?= $row['blood_status']; ?></td>
-                                        <?php
-                                        if (isset($_SESSION['headmaster']) && $_SESSION['headmaster'] == 1) {
-                                            ?>
-                                            <td></td>
-                                            <?
-                                        }
-                                        ?>
                                     </tr>
                                     <?php
                                 }
                                 ?>
                                 </tbody>
                             </table>
-                            <?php
-                        } else {
-                            ?>
-                            <small>list is empty</small>
                             <?php
                         }
                         if (isset($_SESSION['headmaster']) && $_SESSION['headmaster'] == 1) {
