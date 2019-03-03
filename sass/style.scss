@@ -37,6 +37,7 @@
 .header_enter {
   form {
     input {
+      width: auto;
       margin-right: .5em;
     }
     span {
@@ -59,6 +60,11 @@
   padding: 2em 0;
 }
 
+.table_empty {
+  text-align: center;
+  color: $red;
+}
+
 /*------------ user page ------------*/
 .user_page {
   h3 {
@@ -73,15 +79,48 @@
 /*------------ footer ------------*/
 .status-form {
   display: none;
+  text-align: center;
+  label {
+    display: inline-block;
+    margin-right: .5em;
+  }
+  .form {
+    width: 50%;
+    margin: 5% auto 5% auto;
+  }
+  #choose_status {
+    @include button($text_hover, $white, $text_hover_dark);
+  }
 }
 
 .register-form {
-  //display: none;
-}
-
-form {
-  label {
-    display: block;
+  display: none;
+  #add_wizard {
+    margin-right: .5em;
+    @include button($text_hover, $white, $text_hover_dark);
+  }
+  #reset_wizard {
+    @include button($gray_header, $text, $gray_thead);
+    &:hover {
+      color: $gray_table;
+    }
+  }
+  form {
+    label {
+      display: block;
+      width: 50%;
+      padding: 0 15px 1em 15px;
+      float: left;
+      label {
+        display: inline-block;
+        width: auto;
+        padding: .5em .7em;
+      }
+      span {
+        display: block;
+        margin-bottom: .3em;
+      }
+    }
   }
 }
 

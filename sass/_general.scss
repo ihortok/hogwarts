@@ -24,6 +24,11 @@ a {
   }
 }
 
+h2, h3, h4 {
+  text-align: center;
+  margin: .5em;
+}
+
 h2 {
   font-size: 2.5em;
 }
@@ -34,10 +39,6 @@ h3 {
 
 h4 {
   font-size: 1.2em;
-}
-
-h2, h3, h4 {
-  text-align: center;
 }
 
 table {
@@ -91,21 +92,6 @@ form {
     content: '';
     display: block;
     clear: both;
-  }
-  label {
-    display: block;
-    width: 50%;
-    padding: 0 15px 1em 15px;
-    float: left;
-    label {
-      display: inline-block;
-      width: auto;
-      padding: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: .3em;
-    }
   }
   input[type=number],
   input[type=text],
@@ -164,8 +150,15 @@ form {
   .form {
     margin: 5% 0;
     background-color: $white;
-    padding: 2.5em 15px 1em 15px;
+    padding: 3em 15px 1em 15px;
     position: relative;
     @include radius();
+  }
+}
+
+button {
+  &.new_wizard {
+    margin-top: .7em;
+    @include button($text_hover, $white, $text_hover_dark);
   }
 }

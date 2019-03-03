@@ -4,7 +4,7 @@
             <button class="popup_close"><i class="fas fa-times"></i></button>
             <form>
                 <label>
-                    <input type="radio" name="status" value="student"> student
+                    <input type="radio" name="status" value="student" checked> student
                 </label>
                 <label>
                     <input type="radio" name="status" value="teacher"> teacher
@@ -12,7 +12,9 @@
                 <label>
                     <input type="radio" name="status" value="alumnus"> alumnus
                 </label>
-                <button id="choose_status">choose</button>
+                <div class="form_buttons">
+                    <button id="choose_status">choose</button>
+                </div>
             </form>
         </div>
     </div>
@@ -40,6 +42,14 @@
                     <input type="number" name="age" value="11" required>
                 </label>
                 <label>
+                    <span>Patronum:</span>
+                    <input type="text" name="patronum" placeholder="Stag">
+                </label>
+                <label>
+                    <span>Subject:</span>
+                    <input type="text" name="subject" placeholder="">
+                </label>
+                <label>
                     <span>Race:</span>
                     <select name="race">
                         <?php
@@ -51,14 +61,6 @@
                         }
                         ?>
                     </select>
-                </label>
-                <label>
-                    <span>Patronum:</span>
-                    <input type="text" name="patronum" placeholder="Stag">
-                </label>
-                <label>
-                    <span>Subject:</span>
-                    <input type="text" name="subject" placeholder="">
                 </label>
                 <label>
                     <span>House:</span>
@@ -88,8 +90,8 @@
                 </label>
                 <input type="hidden" name="status">
                 <div class="form_buttons">
-                    <button>reset</button>
-                    <button type="submit" name="add_wizard">save</button>
+                    <button type="submit" name="add_wizard" id="add_wizard">save</button>
+                    <button id="reset_wizard">reset</button>
                 </div>
             </form>
         </div>

@@ -1,7 +1,7 @@
 <?php
 require_once 'config.php';
 
-if ($_POST['nickname'] !== "") {
+if (isset($_POST['nickname'])) {
     $nickname = $_POST['nickname'];
     $name = $_POST['name'];
     $surname = $_POST['surname'];
@@ -24,4 +24,12 @@ if ($_POST['nickname'] !== "") {
     $db->query("INSERT INTO wizard (nickname, name, surname, age, race, sex, patronum, status, subject, house, blood_status) VALUES ('$nickname', '$name', '$surname', '$age', '$race', '$sex', '$patronum', '$status', '$subject', '$house', '$blood_status')") or die($db->error);
 
     echo "success";
+}
+
+if (isset($_GET['delete'])) {
+    echo 'qwe';
+    $nickname = $_GET['delete'];
+    $db->query("DELETE FROM wizard WHERE nickname='$nickname'") or die($db->error);
+
+    header("location:index.php");
 }

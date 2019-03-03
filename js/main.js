@@ -50,6 +50,11 @@ $('document').ready(function () {
         $('.register-form').show();
     });
 
+    /*------------ popup ------------*/
+    $('.popup_close').click(function () {
+        $(this).parents('.popup').removeAttr('style');
+    });
+
     /*------------ new wizard ------------*/
     $("#new_wizard").submit(function () {
         var name = $(this).find("input[name='name']").val();

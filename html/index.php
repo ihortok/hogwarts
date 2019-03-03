@@ -56,6 +56,7 @@
             <div class="row">
                 <div class="col-12 col-md-6">
                     <div class="info-section students">
+                        <h3>Students</h3>
                         <?php
                         $students = $db->query("SELECT * FROM wizard WHERE status = 'student'");
                         if (mysqli_num_rows($students) > 0) {
@@ -87,7 +88,8 @@
                                         <?php
                                         if (isset($_SESSION['headmaster']) && $_SESSION['headmaster'] == 1) {
                                             ?>
-                                            <td class="remove"><a href="#"><i class="fas fa-times"></i></a></td>
+                                            <td class="remove"><a href="../process.php?delete=<?= $row['nickname']; ?>"><i
+                                                            class="fas fa-times"></i></a></td>
                                             <?php
                                         }
                                         ?>
@@ -100,12 +102,14 @@
                             <?php
                         } else {
                             ?>
-                            <small>list is empty</small>
+                            <div class="table_empty">
+                                <small>list is empty :(</small>
+                            </div>
                             <?php
                         }
                         if (isset($_SESSION['headmaster']) && $_SESSION['headmaster'] == 1) {
                             ?>
-                            <button id="add_new_student">add new</button>
+                            <button class="new_wizard" id="add_new_student">add new</button>
                             <?php
                         }
                         ?>
@@ -113,6 +117,7 @@
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="info-section teachers">
+                        <h3>Teachers</h3>
                         <?php
                         $teachers = $db->query("SELECT * FROM wizard WHERE status = 'teacher'");
                         if (mysqli_num_rows($teachers) > 0) {
@@ -146,7 +151,8 @@
                                         <?php
                                         if (isset($_SESSION['headmaster']) && $_SESSION['headmaster'] == 1) {
                                             ?>
-                                            <td class="remove"><a href="#"><i class="fas fa-times"></i></a></td>
+                                            <td class="remove"><a href="../process.php?delete=<?= $row['nickname']; ?>"><i
+                                                            class="fas fa-times"></i></a></td>
                                             <?php
                                         }
                                         ?>
@@ -159,12 +165,14 @@
                             <?php
                         } else {
                             ?>
-                            <small>list is empty</small>
+                            <div class="table_empty">
+                                <small>list is empty :(</small>
+                            </div>
                             <?php
                         }
                         if (isset($_SESSION['headmaster']) && $_SESSION['headmaster'] == 1) {
                             ?>
-                            <button id="add_new_teacher">add new</button>
+                            <button class="new_wizard" id="add_new_teacher">add new</button>
                             <?php
                         }
                         ?>
