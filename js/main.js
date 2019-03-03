@@ -27,6 +27,28 @@ $('document').ready(function () {
         return false;
     });
 
+    /*------------ new wizard buttons ------------*/
+    $('#register-btn').click(function () {
+        $('.status-form').show();
+    });
+
+    $('#choose_status').click(function (e) {
+        e.preventDefault();
+        console.log($('input[name=status]:checked', '.status-form').val());
+        $('.status-form').hide();
+        $('.register-form').show();
+    });
+
+    $('#add_new_student').click(function () {
+        $("#new_wizard input[name=status]").val("student");
+        $('.register-form').show();
+    });
+
+    $('#add_new_teacher').click(function () {
+        $("#new_wizard input[name=status]").val("teacher");
+        $('.register-form').show();
+    });
+
     /*------------ new wizard ------------*/
     $("#new_wizard").submit(function () {
         var name = $(this).find("input[name='name']").val();

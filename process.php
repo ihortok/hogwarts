@@ -13,7 +13,6 @@ if ($_POST['nickname'] !== "") {
     } else {
         $patronum = $_POST['patronum'];
     }
-    $status = 'student';
     if (empty($_POST['subject'])) {
         $subject = null;
     } else {
@@ -21,6 +20,7 @@ if ($_POST['nickname'] !== "") {
     }
     $house = $_POST['house'];
     $blood_status = $_POST['blood_status'];
+    $status = $_POST['status'];
 
     $db->query("INSERT INTO wizard (nickname, name, surname, age, race, sex, patronum, status, subject, house, blood_status) VALUES ('$nickname', '$name', '$surname', '$age', '$race', '$sex', '$patronum', '$status', '$subject', '$house', '$blood_status')") or die($db->error);
 

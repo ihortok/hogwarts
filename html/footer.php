@@ -1,7 +1,19 @@
-<?php
-if (isset($_SESSION['headmaster'])) {
-    ?>
-<!--    <form id="new_wizard" action="../process.php" method="POST">-->
+<div class="status-form">
+    <form>
+        <label>
+            <input type="radio" name="status" value="student"> student
+        </label>
+        <label>
+            <input type="radio" name="status" value="teacher"> teacher
+        </label>
+        <label>
+            <input type="radio" name="status" value="alumnus"> alumnus
+        </label>
+        <button id="choose_status">choose</button>
+    </form>
+</div>
+
+<div class="register-form">
     <form id="new_wizard" method="POST">
         <label>
             <span>Nickname:</span>
@@ -66,12 +78,11 @@ if (isset($_SESSION['headmaster'])) {
                 <option>Muggle-born</option>
             </select>
         </label>
+        <input type="hidden" name="status">
         <button>reset</button>
         <button type="submit" name="add_wizard">save</button>
     </form>
-    <?php
-}
-?>
+</div>
 
 <script type="text/javascript" src="../js/jquery.min.js"></script>
 <script type="text/javascript" src="../js/main.js"></script>
