@@ -1,7 +1,8 @@
 <?php
 if (isset($_SESSION['headmaster'])) {
     ?>
-    <form action="../process.php" method="POST">
+<!--    <form id="new_wizard" action="../process.php" method="POST">-->
+    <form id="new_wizard" method="POST">
         <label>
             <span>Nickname:</span>
             <input type="text" name="nickname" placeholder="theBoyWhoLived" required>
@@ -16,15 +17,24 @@ if (isset($_SESSION['headmaster'])) {
         </label>
         <label>
             <span>Age:</span>
-            <input type="number" name="age" placeholder="17">
+            <input type="number" name="age" value="11" required>
         </label>
         <label>
             <span>Race:</span>
-            <input type="text" name="race" placeholder="Human">
+            <select name="race">
+                <?php
+                $result = $db->query("SELECT * FROM race");
+                while ($row = $result->fetch_assoc()) {
+                    ?>
+                    <option><?= $row['name']; ?></option>
+                    <?php
+                }
+                ?>
+            </select>
         </label>
         <label>
             <span>Sex:</span>
-            <label><input type="radio" name="sex" value="M"> M</label>
+            <label><input type="radio" name="sex" value="M" checked> M</label>
             <label><input type="radio" name="sex" value="F"> F</label>
         </label>
         <label>
@@ -37,7 +47,16 @@ if (isset($_SESSION['headmaster'])) {
         </label>
         <label>
             <span>House:</span>
-            <input type="text" name="house" placeholder="Gryffindor">
+            <select name="house">
+                <?php
+                $result = $db->query("SELECT * FROM house");
+                while ($row = $result->fetch_assoc()) {
+                    ?>
+                    <option><?= $row['name']; ?></option>
+                    <?php
+                }
+                ?>
+            </select>
         </label>
         <label>
             <span>Blood-status:</span>
@@ -48,7 +67,7 @@ if (isset($_SESSION['headmaster'])) {
             </select>
         </label>
         <button>reset</button>
-        <button type="submit" name="new_wizard">save</button>
+        <button type="submit" name="add_wizard">save</button>
     </form>
     <?php
 }

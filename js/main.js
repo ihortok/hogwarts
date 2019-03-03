@@ -27,6 +27,25 @@ $('document').ready(function () {
         return false;
     });
 
-    /*------------  ------------*/
+    /*------------ new wizard ------------*/
+    $("#new_wizard").submit(function () {
+        var name = $(this).find("input[name='name']").val();
+        var data = $(this).serialize();
+        $.ajax({
+            type: 'POST',
+            url: '../process.php',
+            data: data,
+            async: true,
+            success: function (response) {
+                if (response === "success") {
+                    $("body").append("<p>" + name + "</p>")
+                }
+                else {
+                    $("body").append("<p>error</p>")
+                }
+            }
+        });
+        return false;
+    });
 
 });
