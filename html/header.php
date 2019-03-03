@@ -16,8 +16,9 @@ session_start();
     <link rel="manifest" href="../favicons/site.webmanifest">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
@@ -36,22 +37,24 @@ session_start();
                 <li><a href="user.php">Wizard card</a></li>
             </ul>
         </nav>
-        <?php
-        if (isset($_SESSION['nickname'])) {
-            ?>
-            <a href="../logout.php" id="log-out">log out</a>
+        <div class="header_enter">
             <?php
-        } else {
-            ?>
-            <form class="login" method="POST" id="login-form">
-                <input type="text" placeholder="nickname" name="nickname" id="nickname" required>
-                <span class="error-msg"></span>
-                <button type="submit" name="login-btn" id="login-btn">sign in</button>
-            </form>
+            if (isset($_SESSION['nickname'])) {
+                ?>
+                <a href="../logout.php" id="log-out">log out</a>
+                <?php
+            } else {
+                ?>
+                <form class="login" method="POST" id="login-form">
+                    <input type="text" placeholder="nickname" name="nickname" id="nickname" required>
+                    <span class="error-msg"></span>
+                    <button type="submit" name="login-btn" id="login-btn">sign in</button>
+                    <button id="register-btn">sign up</button>
+                </form>
 
-            <button id="register-btn">sign up</button>
-            <?php
-        }
-        ?>
+                <?php
+            }
+            ?>
+        </div>
     </div>
 </header>

@@ -1,13 +1,101 @@
 /*------------ imports ------------*/
+/*------------ fonts ------------*/
+/*------------ transform ------------*/
+/*------------ animate ------------*/
+/*------------ flex ------------*/
+/*------------ other ------------*/
+/*------------ colors ------------*/
+/*------------ button ------------*/
+/*------------ placeholder ------------*/
+::-webkit-input-placeholder {
+  color: #808080 !important; }
+
+:-moz-placeholder {
+  color: #808080 !important; }
+
+::-moz-placeholder {
+  color: #808080 !important; }
+
+:-ms-input-placeholder {
+  color: #808080 !important; }
+
 body {
   font-size: 18px; }
 
 .wrapper {
   max-width: 1320px;
-  overflow: hidden;
   margin: auto; }
   .wrapper.wrapper_container {
     padding: 0 15px; }
+
+.info-section {
+  padding-top: 1em;
+  overflow: auto; }
+
+table {
+  width: 100%;
+  overflow: auto; }
+  table thead tr {
+    background-color: rgba(74, 71, 75, 0.83);
+    color: #fff; }
+  table tbody tr:nth-child(even) {
+    background-color: rgba(249, 242, 252, 0.79); }
+    table tbody tr:nth-child(even) td {
+      border-left: 1px solid #000000; }
+      table tbody tr:nth-child(even) td:first-child {
+        border: none; }
+  table tbody tr:nth-child(odd) {
+    background-color: rgba(90, 252, 255, 0.3); }
+    table tbody tr:nth-child(odd) td {
+      border-left: 1px solid rgba(249, 242, 252, 0.79); }
+      table tbody tr:nth-child(odd) td:first-child {
+        border: none; }
+  table th {
+    border-right: 1px solid #fff; }
+    table th:last-child {
+      border: none; }
+  table th, table td {
+    padding: .5em;
+    text-align: center; }
+
+button {
+  background-color: #5ab86b;
+  color: #fff;
+  border: none;
+  padding: .5em .7em;
+  outline: none !important;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  -webkit-box-shadow: 3px 3px 5px 0 #3a7443;
+  -moz-box-shadow: 3px 3px 5px 0 #3a7443;
+  box-shadow: 3px 3px 5px 0 #3a7443; }
+  button:hover {
+    background-color: #3a7443; }
+  button:active {
+    box-shadow: none; }
+
+/*------------ header ------------*/
+.header .wrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: space-between;
+  -webkit-justify-content: space-between;
+  -moz-box-pack: space-between;
+  -ms-flex-pack: space-between;
+  justify-content: space-between; }
+
+.nav li {
+  display: inline-block;
+  text-transform: uppercase; }
 
 /*------------ footer ------------*/
 .status-form {

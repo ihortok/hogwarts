@@ -4,22 +4,60 @@ body {
 
 .wrapper {
   max-width: 1320px;
-  overflow: hidden;
   margin: auto;
   &.wrapper_container {
     padding: 0 15px;
   }
 }
 
+.info-section {
+  padding-top: 1em;
+  overflow: auto;
+}
+
 table {
+  width: 100%;
+  overflow: auto;
+  thead {
+    tr {
+      background-color: $gray_thead;
+      color: $white;
+    }
+  }
   tbody {
     tr {
       &:nth-child(even) {
-
+        background-color: $gray_table;
+        td {
+          border-left: 1px solid #000000;
+          &:first-child {
+            border: none;
+          }
+        }
       }
-      &:nth-child(even) {
-
+      &:nth-child(odd) {
+        background-color: $blue_table;
+        td {
+          border-left: 1px solid $gray_table;
+          &:first-child {
+            border: none;
+          }
+        }
       }
     }
   }
+  th {
+    border-right: 1px solid $white;
+    &:last-child {
+      border: none;
+    }
+  }
+  th, td {
+    padding: .5em;
+    text-align: center;
+  }
+}
+
+button {
+  @include button();
 }

@@ -1,7 +1,7 @@
 <?php include 'header.php'; ?>
 
 <div class="wrapper">
-    <div class="container_fluid">
+    <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12 col-sm-6">
                 <div class="headmaster">
@@ -54,8 +54,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-sm-6">
-                <div class="students">
+            <div class="col-12 col-md-6">
+                <div class="info-section students">
                     <?php
                     $students = $db->query("SELECT * FROM wizard WHERE status = 'student'");
                     if (mysqli_num_rows($students) > 0) {
@@ -68,7 +68,7 @@
                                 <th>Race</th>
                                 <th>Sex</th>
                                 <th>Patronum</th>
-                                <th>Name</th>
+                                <th>House</th>
                                 <th>Blood-status</th>
                             </tr>
                             </thead>
@@ -100,8 +100,8 @@
                     ?>
                 </div>
             </div>
-            <div class="col-12 col-sm-6">
-                <div class="teachers">
+            <div class="col-12 col-md-6">
+                <div class="info-section teachers">
                     <?php
                     $teachers = $db->query("SELECT * FROM wizard WHERE status = 'teacher'");
                     if (mysqli_num_rows($teachers) > 0) {
@@ -114,7 +114,8 @@
                                 <th>Race</th>
                                 <th>Sex</th>
                                 <th>Patronum</th>
-                                <th>Name</th>
+                                <th>Subject</th>
+                                <th>House</th>
                                 <th>Blood-status</th>
                             </tr>
                             </thead>

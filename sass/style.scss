@@ -1,7 +1,22 @@
 /*------------ imports ------------*/
-@import "_vars";
 @import "_mixins";
+@import "_vars";
 @import "_general.scss";
+
+/*------------ header ------------*/
+.header {
+  .wrapper {
+    @include flex_display;
+    @include flex_justify_content(space-between);
+  }
+}
+
+.nav {
+  li {
+    display: inline-block;
+    text-transform: uppercase;
+  }
+}
 
 /*------------ footer ------------*/
 .status-form {
