@@ -2,6 +2,7 @@
     <div class="wrapper wrapper_container">
         <div class="form">
             <button class="popup_close"><i class="fas fa-times"></i></button>
+            <h4>Choose your status:</h4>
             <form>
                 <label>
                     <input type="radio" name="status" value="student" checked> student
@@ -13,7 +14,7 @@
                     <input type="radio" name="status" value="alumnus"> alumnus
                 </label>
                 <div class="form_buttons">
-                    <button id="choose_status">choose</button>
+                    <button id="choose_status">next</button>
                 </div>
             </form>
         </div>
