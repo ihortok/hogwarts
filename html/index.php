@@ -57,22 +57,22 @@
                 <div class="col-12 col-md-6">
                     <div class="info-section students">
                         <h3>Students</h3>
-                        <?php
-                        $students = $db->query("SELECT * FROM wizard WHERE status = 'student'");
-                        if (mysqli_num_rows($students) > 0) {
-                            ?>
-                            <table>
-                                <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Age</th>
-                                    <th>Race</th>
-                                    <th>Sex</th>
-                                    <th>Patronum</th>
-                                    <th>House</th>
-                                    <th>Blood-status</th>
-                                </tr>
-                                </thead>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Race</th>
+                                <th>Sex</th>
+                                <th>Patronum</th>
+                                <th>House</th>
+                                <th>Blood-status</th>
+                            </tr>
+                            </thead>
+                            <?php
+                            $students = $db->query("SELECT * FROM wizard WHERE status = 'student'");
+                            if (mysqli_num_rows($students) > 0) {
+                                ?>
                                 <tbody>
                                 <?php
                                 while ($row = $students->fetch_assoc()) {
@@ -91,7 +91,8 @@
                                             <td class="remove">
                                                 <!--                                                <a href="../process.php?delete=-->
                                                 <?//= $row['nickname']; ?><!--"><i class="fas fa-times"></i></a>-->
-                                                <a href="delete=<?= $row['nickname']; ?>"><i class="fas fa-times"></i></a>
+                                                <a href="delete=<?= $row['nickname']; ?>"><i
+                                                            class="fas fa-times"></i></a>
                                             </td>
                                             <?php
                                         }
@@ -101,15 +102,19 @@
                                 }
                                 ?>
                                 </tbody>
-                            </table>
-                            <?php
-                        } else {
+                                <?php
+                            } else {
+                                ?>
+                                <tfoot class="table_empty">
+                                <tr>
+                                    <td colspan="7">list is empty :(</td>
+                                </tr>
+                                </tfoot>
+                                <?php
+                            }
                             ?>
-                            <div class="table_empty">
-                                <small>list is empty :(</small>
-                            </div>
-                            <?php
-                        }
+                        </table>
+                        <?php
                         if (isset($_SESSION['headmaster']) && $_SESSION['headmaster'] == 1) {
                             ?>
                             <button class="new_wizard" id="add_new_student">add new</button>
@@ -121,23 +126,24 @@
                 <div class="col-12 col-md-6">
                     <div class="info-section teachers">
                         <h3>Teachers</h3>
-                        <?php
-                        $teachers = $db->query("SELECT * FROM wizard WHERE status = 'teacher'");
-                        if (mysqli_num_rows($teachers) > 0) {
-                            ?>
-                            <table>
-                                <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Age</th>
-                                    <th>Race</th>
-                                    <th>Sex</th>
-                                    <th>Patronum</th>
-                                    <th>Subject</th>
-                                    <th>House</th>
-                                    <th>Blood-status</th>
-                                </tr>
-                                </thead>
+
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Race</th>
+                                <th>Sex</th>
+                                <th>Patronum</th>
+                                <th>Subject</th>
+                                <th>House</th>
+                                <th>Blood-status</th>
+                            </tr>
+                            </thead>
+                            <?php
+                            $teachers = $db->query("SELECT * FROM wizard WHERE status = 'teacher'");
+                            if (mysqli_num_rows($teachers) > 0) {
+                                ?>
                                 <tbody>
                                 <?php
                                 while ($row = $teachers->fetch_assoc()) {
@@ -164,15 +170,19 @@
                                 }
                                 ?>
                                 </tbody>
-                            </table>
-                            <?php
-                        } else {
+                                <?php
+                            } else {
+                                ?>
+                                <tfoot class="table_empty">
+                                <tr>
+                                    <td colspan="8">list is empty :(</td>
+                                </tr>
+                                </tfoot>
+                                <?php
+                            }
                             ?>
-                            <div class="table_empty">
-                                <small>list is empty :(</small>
-                            </div>
-                            <?php
-                        }
+                        </table>
+                        <?php
                         if (isset($_SESSION['headmaster']) && $_SESSION['headmaster'] == 1) {
                             ?>
                             <button class="new_wizard" id="add_new_teacher">add new</button>
