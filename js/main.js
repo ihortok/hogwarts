@@ -115,7 +115,10 @@ $('document').ready(function () {
             async: true,
             success: function (response) {
                 if (response === "success") {
-                    $("body").append("<p>" + nick + "</p>")
+                    if (table.find('tbody tr').length == 1) {
+                        table.find('tbody').remove();
+                        table.append('<tfoot><tr><td colspan="7">list is empty :(</td></tr></tfoot>');
+                    }
                 }
                 else {
                     alert('error');
