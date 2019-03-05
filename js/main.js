@@ -57,7 +57,18 @@ $('document').ready(function () {
 
     /*------------ add/remove/update wizard ------------*/
     $("#new_wizard").submit(function () {
+        var nickname = $(this).find("input[name='nickname']").val();
         var name = $(this).find("input[name='name']").val();
+        var surname = $(this).find("input[name='surname']").val();
+        var age = $(this).find("input[name='age']").val();
+        var race = $(this).find("select[name='race'] option:selected").val();
+        var sex = $(this).find("input[name='sex']").val();
+        var patronum = $(this).find("input[name='patronum']").val();
+        var house = $(this).find("select[name='house'] option:selected").val();
+        var blood_status = $(this).find("select[name='blood_status'] option:selected").val();
+        var status = $(this).find("input[name='status']").val();
+
+        var table = $('.' + status + ' table');
         var data = $(this).serialize();
         $.ajax({
             type: 'POST',
@@ -66,10 +77,27 @@ $('document').ready(function () {
             async: true,
             success: function (response) {
                 if (response === "success") {
-                    $("body").append("<p>" + name + "</p>")
+                    $(".register-form").removeAttr('style');
+                    console.log(table.find('tbody tr').length);
+                    if (table.find('tbody tr').length == 0) {
+                        table.find('tfoot').remove();
+                        table.append('<tbody></tbody>');
+                    }
+                    table.find('tbody').append('<tr>' +
+                        '<td>' + name + ' ' + surname + '</td>' +
+                        '<td>' + age + '</td>' +
+                        '<td>' + race + '</td>' +
+                        '<td>' + sex + '</td>' +
+                        '<td>' + patronum + '</td>' +
+                        '<td>' + house + '</td>' +
+                        '<td>' + blood_status + '</td>' +
+                        '</tr>');
+                    if ($('.new_wizard').length > 0) {
+                        table.find('tbody tr').last().append("<td>" + "<a href='delete=" + nickname + "'><i class='fas fa-times'></i></a>" + "</td>");
+                    }
                 }
                 else {
-                    $("body").append("<p>error</p>")
+                    alert('error');
                 }
             }
         });
@@ -90,7 +118,7 @@ $('document').ready(function () {
                     $("body").append("<p>" + nick + "</p>")
                 }
                 else {
-                    $("body").append("<p>error</p>")
+                    alert('error');
                 }
             }
         });

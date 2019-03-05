@@ -55,7 +55,7 @@
             </div>
             <div class="row">
                 <div class="col-12 col-md-6">
-                    <div class="info-section students">
+                    <div class="info-section student">
                         <h3>Students</h3>
                         <table>
                             <thead>
@@ -124,7 +124,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
-                    <div class="info-section teachers">
+                    <div class="info-section teacher">
                         <h3>Teachers</h3>
 
                         <table>
