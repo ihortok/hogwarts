@@ -59,23 +59,25 @@ $('document').ready(function () {
 
     /*------------ add/remove/update wizard ------------*/
     $("#add_wizard").click(function () {
-        var nickname = $(this).parents('form').find("input[name='nickname']").val(),
-            name = $(this).parents('form').find("input[name='name']").val(),
-            surname = $(this).parents('form').find("input[name='surname']").val(),
-            age = $(this).parents('form').find("input[name='age']").val(),
-            race = $(this).parents('form').find("select[name='race'] option:selected").val(),
-            sex = $(this).parents('form').find("input[name='sex']").val(),
-            patronum = $(this).parents('form').find("input[name='patronum']").val(),
-            house = $(this).parents('form').find("select[name='house'] option:selected").val(),
-            blood_status = $(this).parents('form').find("select[name='blood_status'] option:selected").val(),
-            status = $(this).parents('form').find("input[name='status']").val(),
-            subject;
-        if (status === 'teacher') {
-            subject = '<td>' + $(this).parents('form').find("input[name='subject']").val() + '</td>';
+        var fields = {
+            nickname: $(this).parents('form').find("input[name='nickname']").val(),
+            name: $(this).parents('form').find("input[name='name']").val(),
+            surname: $(this).parents('form').find("input[name='surname']").val(),
+            age: $(this).parents('form').find("input[name='age']").val(),
+            race: $(this).parents('form').find("select[name='race'] option:selected").val(),
+            sex: $(this).parents('form').find("input[name='sex']:checked").val(),
+            patronum: $(this).parents('form').find("input[name='patronum']").val(),
+            house: $(this).parents('form').find("select[name='house'] option:selected").val(),
+            blood_status: $(this).parents('form').find("select[name='blood_status'] option:selected").val(),
+            status: $(this).parents('form').find("input[name='status']").val(),
+            subject: ""
+        };
+        if (fields.status === 'teacher') {
+            fields.subject = '<td>' + $(this).parents('form').find("input[name='subject']").val() + '</td>';
         }
         /*------------ table ------------*/
         if (edit === false) {
-            var table = $('.' + status + ' table');
+            var table = $('.' + fields.status + ' table');
         }
         var data = $(this).parents('form').serialize();
         $.ajax({
@@ -87,26 +89,27 @@ $('document').ready(function () {
                 if (response === "success") {
                     $(".register-form").removeAttr('style');
                     if (edit === true) {
-
+                        $.each(fields, function (key, value) {
+                            $(".user_page td[data-field='" + key + "']").text(value);
+                        });
                         return false;
                     }
-                    alert('sss');
                     if (table.find('tbody tr').length == 0) {
                         table.find('tfoot').remove();
                         table.append('<tbody></tbody>');
                     }
                     table.find('tbody').append('<tr>' +
-                        '<td>' + name + ' ' + surname + '</td>' +
-                        '<td>' + age + '</td>' +
-                        '<td>' + race + '</td>' +
-                        '<td>' + sex + '</td>' +
-                        '<td>' + patronum + '</td>' +
-                        subject +
-                        '<td>' + house + '</td>' +
-                        '<td>' + blood_status + '</td>' +
+                        '<td>' + fields.name + ' ' + fields.surname + '</td>' +
+                        '<td>' + fields.age + '</td>' +
+                        '<td>' + fields.race + '</td>' +
+                        '<td>' + fields.sex + '</td>' +
+                        '<td>' + fields.patronum + '</td>' +
+                        fields.subject +
+                        '<td>' + fields.house + '</td>' +
+                        '<td>' + fields.blood_status + '</td>' +
                         '</tr>');
                     if ($('.new_wizard').length > 0) {
-                        table.find('tbody tr').last().append("<td class='remove'>" + "<a class='remove_bnt' href='delete=" + nickname + "'><i class='fas fa-times'></i></a>" + "</td>");
+                        table.find('tbody tr').last().append("<td class='remove'>" + "<a class='remove_bnt' href='delete=" + fields.nickname + "'><i class='fas fa-times'></i></a>" + "</td>");
                     }
                 }
                 else {
