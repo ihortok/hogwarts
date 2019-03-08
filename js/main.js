@@ -67,7 +67,7 @@ $('document').ready(function () {
         var house = $(this).find("select[name='house'] option:selected").val();
         var blood_status = $(this).find("select[name='blood_status'] option:selected").val();
         var status = $(this).find("input[name='status']").val();
-
+        /*------------ table ------------*/
         var table = $('.' + status + ' table');
         var data = $(this).serialize();
         $.ajax({
@@ -93,7 +93,7 @@ $('document').ready(function () {
                         '<td>' + blood_status + '</td>' +
                         '</tr>');
                     if ($('.new_wizard').length > 0) {
-                        table.find('tbody tr').last().append("<td>" + "<a href='delete=" + nickname + "'><i class='fas fa-times'></i></a>" + "</td>");
+                        table.find('tbody tr').last().append("<td class='remove'>" + "<a class='remove_bnt' href='delete=" + nickname + "'><i class='fas fa-times'></i></a>" + "</td>");
                     }
                 }
                 else {
@@ -104,10 +104,11 @@ $('document').ready(function () {
         return false;
     });
 
-    $(".remove a").click(function (e) {
+    $(".info-section table").on('click', '.remove_bnt', function (e) {
         e.preventDefault();
         var nick = $(this).attr('href');
-        console.log(nick);
+        var table = $(this).parents('table');
+        var tr = $(this).parents('tr');
         $.ajax({
             type: 'POST',
             url: '../process.php',
@@ -117,7 +118,9 @@ $('document').ready(function () {
                 if (response === "success") {
                     if (table.find('tbody tr').length == 1) {
                         table.find('tbody').remove();
-                        table.append('<tfoot><tr><td colspan="7">list is empty :(</td></tr></tfoot>');
+                        table.append('<tfoot class="table_empty"><tr><td colspan="7">list is empty :(</td></tr></tfoot>');
+                    } else {
+                        tr.remove();
                     }
                 }
                 else {
