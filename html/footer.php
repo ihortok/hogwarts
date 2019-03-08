@@ -10,9 +10,6 @@
                 <label>
                     <input type="radio" name="status" value="teacher"> teacher
                 </label>
-                <label>
-                    <input type="radio" name="status" value="alumnus"> alumnus
-                </label>
                 <div class="form_buttons">
                     <button id="choose_status">next</button>
                 </div>
@@ -40,13 +37,13 @@
                 </label>
                 <label class="label">
                     <span>Age:</span>
-                    <input type="number" name="age" value="11" required>
+                    <input type="number" name="age" value="11" min="11" max="999" id="wizard_age">
                 </label>
                 <label class="label">
                     <span>Patronum:</span>
                     <input type="text" name="patronum" placeholder="Stag">
                 </label>
-                <label class="label">
+                <label class="label subject">
                     <span>Subject:</span>
                     <input type="text" name="subject" placeholder="">
                 </label>
@@ -93,7 +90,6 @@
                 <input type="hidden" name="current_nick">
                 <div class="form_buttons">
                     <button type="submit" name="add_wizard" id="add_wizard">save</button>
-                    <button name="update_wizard" id="update_wizard">update</button>
                     <button id="reset_wizard">reset</button>
                 </div>
             </form>

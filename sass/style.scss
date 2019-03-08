@@ -69,11 +69,27 @@
 
 /*------------ user page ------------*/
 .user_page {
+  text-align: center;
+  #edit {
+    margin-top: .7em;
+    @include button($text_hover, $white, $text_hover_dark);
+  }
   h3 {
     margin: 2em 0;
     line-height: 1.5em;
     a {
       color: $text_hover;
+    }
+  }
+  table {
+    tr {
+      td {
+        &:first-child {
+          background-color: $gray_user;
+          color: $white;
+          font-weight: bold;
+        }
+      }
     }
   }
 }
@@ -97,8 +113,7 @@
 
 .register-form {
   display: none;
-  #add_wizard,
-  #update_wizard {
+  #add_wizard {
     margin-right: .5em;
     @include button($text_hover, $white, $text_hover_dark);
   }
@@ -107,9 +122,6 @@
     &:hover {
       color: $white;
     }
-  }
-  #update_wizard {
-    display: none;
   }
   form {
     label {

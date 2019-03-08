@@ -3,7 +3,7 @@
 <div class="user_page">
     <div class="wrapper">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row justify-content-center">
                 <?php
                 if (isset($_SESSION['nickname'])) {
                     $nick = $_SESSION['nickname'];
@@ -11,7 +11,7 @@
                     $row = $result->fetch_assoc();
                     ?>
                     <div class="col-12">
-                        <p>Hello, <?= $row['name']; ?>!</p>
+                        <h2>Hello, <span class="name"><?= $row['name']; ?></span>!</h2>
                     </div>
                     <div class="col-12 col-sm-6">
                         <table>
