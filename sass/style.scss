@@ -97,7 +97,8 @@
 
 .register-form {
   display: none;
-  #add_wizard {
+  #add_wizard,
+  #update_wizard {
     margin-right: .5em;
     @include button($text_hover, $white, $text_hover_dark);
   }
@@ -106,6 +107,9 @@
     &:hover {
       color: $white;
     }
+  }
+  #update_wizard {
+    display: none;
   }
   form {
     label {

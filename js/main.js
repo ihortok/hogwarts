@@ -1,3 +1,5 @@
+var edit = false;
+
 $('document').ready(function () {
     /*------------ log in ------------*/
     $("#login-form input").click(function () {
@@ -56,24 +58,26 @@ $('document').ready(function () {
     });
 
     /*------------ add/remove/update wizard ------------*/
-    $("#new_wizard").submit(function () {
-        var nickname = $(this).find("input[name='nickname']").val();
-        var name = $(this).find("input[name='name']").val();
-        var surname = $(this).find("input[name='surname']").val();
-        var age = $(this).find("input[name='age']").val();
-        var race = $(this).find("select[name='race'] option:selected").val();
-        var sex = $(this).find("input[name='sex']").val();
-        var patronum = $(this).find("input[name='patronum']").val();
-        var house = $(this).find("select[name='house'] option:selected").val();
-        var blood_status = $(this).find("select[name='blood_status'] option:selected").val();
-        var status = $(this).find("input[name='status']").val();
-        var subject;
+    $("#add_wizard").click(function () {
+        var nickname = $(this).parents('form').find("input[name='nickname']").val(),
+            name = $(this).parents('form').find("input[name='name']").val(),
+            surname = $(this).parents('form').find("input[name='surname']").val(),
+            age = $(this).parents('form').find("input[name='age']").val(),
+            race = $(this).parents('form').find("select[name='race'] option:selected").val(),
+            sex = $(this).parents('form').find("input[name='sex']").val(),
+            patronum = $(this).parents('form').find("input[name='patronum']").val(),
+            house = $(this).parents('form').find("select[name='house'] option:selected").val(),
+            blood_status = $(this).parents('form').find("select[name='blood_status'] option:selected").val(),
+            status = $(this).parents('form').find("input[name='status']").val(),
+            subject;
         if (status === 'teacher') {
-            subject = '<td>' + $(this).find("input[name='subject']").val() + '</td>';
+            subject = '<td>' + $(this).parents('form').find("input[name='subject']").val() + '</td>';
         }
         /*------------ table ------------*/
-        var table = $('.' + status + ' table');
-        var data = $(this).serialize();
+        if (edit === false) {
+            var table = $('.' + status + ' table');
+        }
+        var data = $(this).parents('form').serialize();
         $.ajax({
             type: 'POST',
             url: '../process.php',
@@ -82,7 +86,11 @@ $('document').ready(function () {
             success: function (response) {
                 if (response === "success") {
                     $(".register-form").removeAttr('style');
-                    console.log(table.find('tbody tr').length);
+                    if (edit === true) {
+
+                        return false;
+                    }
+                    alert('sss');
                     if (table.find('tbody tr').length == 0) {
                         table.find('tfoot').remove();
                         table.append('<tbody></tbody>');
@@ -151,9 +159,12 @@ $('document').ready(function () {
                 $(this).find("input[value='" + table.find("td[data-field='" + $(this).children('label:eq(0)').find('input').attr('name') + "']").text() + "']").prop('checked');
             }
         });
-        $(".register-form input[name='nickname']").val(nickname);
+        $(".register-form input[name='nickname']").val(nickname).attr('disabled', 'disabled');
+        $(".register-form input[name='current_nick']").val(nickname);
         $(".register-form input[value='" + gender + "']").prop("checked", true);
+        $("#add_wizard").text('update');
         $('.register-form').show();
+        edit = true;
     });
 
 });

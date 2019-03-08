@@ -90,8 +90,10 @@
                     <label><input type="radio" name="sex" value="F"> F</label>
                 </label>
                 <input type="hidden" name="status">
+                <input type="hidden" name="current_nick">
                 <div class="form_buttons">
                     <button type="submit" name="add_wizard" id="add_wizard">save</button>
+                    <button name="update_wizard" id="update_wizard">update</button>
                     <button id="reset_wizard">reset</button>
                 </div>
             </form>

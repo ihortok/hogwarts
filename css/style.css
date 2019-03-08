@@ -326,7 +326,8 @@ button.new_wizard {
 
 .register-form {
   display: none; }
-  .register-form #add_wizard {
+  .register-form #add_wizard,
+  .register-form #update_wizard {
     margin-right: .5em;
     background-color: #336aae;
     color: #fff;
@@ -345,9 +346,11 @@ button.new_wizard {
     -webkit-box-shadow: 2px 2px 5px 0 #244877;
     -moz-box-shadow: 2px 2px 5px 0 #244877;
     box-shadow: 2px 2px 5px 0 #244877; }
-    .register-form #add_wizard:hover {
+    .register-form #add_wizard:hover,
+    .register-form #update_wizard:hover {
       background-color: #244877; }
-    .register-form #add_wizard:active {
+    .register-form #add_wizard:active,
+    .register-form #update_wizard:active {
       box-shadow: none; }
   .register-form #reset_wizard {
     background-color: rgba(223, 216, 226, 0.79);
@@ -373,6 +376,8 @@ button.new_wizard {
       box-shadow: none; }
     .register-form #reset_wizard:hover {
       color: #fff; }
+  .register-form #update_wizard {
+    display: none; }
   .register-form form label {
     display: block;
     width: 50%;
