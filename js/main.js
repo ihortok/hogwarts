@@ -67,6 +67,10 @@ $('document').ready(function () {
         var house = $(this).find("select[name='house'] option:selected").val();
         var blood_status = $(this).find("select[name='blood_status'] option:selected").val();
         var status = $(this).find("input[name='status']").val();
+        var subject;
+        if (status === 'teacher') {
+            subject = '<td>' + $(this).find("input[name='subject']").val() + '</td>';
+        }
         /*------------ table ------------*/
         var table = $('.' + status + ' table');
         var data = $(this).serialize();
@@ -89,6 +93,7 @@ $('document').ready(function () {
                         '<td>' + race + '</td>' +
                         '<td>' + sex + '</td>' +
                         '<td>' + patronum + '</td>' +
+                        subject +
                         '<td>' + house + '</td>' +
                         '<td>' + blood_status + '</td>' +
                         '</tr>');
@@ -109,6 +114,7 @@ $('document').ready(function () {
         var nick = $(this).attr('href');
         var table = $(this).parents('table');
         var tr = $(this).parents('tr');
+        var columns = table.find('thead th').length;
         $.ajax({
             type: 'POST',
             url: '../process.php',
@@ -118,7 +124,7 @@ $('document').ready(function () {
                 if (response === "success") {
                     if (table.find('tbody tr').length == 1) {
                         table.find('tbody').remove();
-                        table.append('<tfoot class="table_empty"><tr><td colspan="7">list is empty :(</td></tr></tfoot>');
+                        table.append('<tfoot class="table_empty"><tr><td colspan="' + columns + '">list is empty :(</td></tr></tfoot>');
                     } else {
                         tr.remove();
                     }

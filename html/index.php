@@ -158,8 +158,10 @@
                                         <?php
                                         if (isset($_SESSION['headmaster']) && $_SESSION['headmaster'] == 1) {
                                             ?>
-                                            <td class="remove"><a class="remove_bnt" href="../process.php?delete=<?= $row['nickname']; ?>"><i
-                                                            class="fas fa-times"></i></a></td>
+                                            <td class="remove">
+                                                <a class="remove_bnt" href="delete=<?= $row['nickname']; ?>"><i
+                                                            class="fas fa-times"></i></a>
+                                            </td>
                                             <?php
                                         }
                                         ?>
