@@ -62,6 +62,7 @@
                                 <td data-field="blood_status"><?= $row['blood_status']; ?></td>
                             </tr>
                         </table>
+                        <button data-nickname="<?= $row['nickname']; ?>" id="edit">edit</button>
                     </div>
                     <?php
                 } else {

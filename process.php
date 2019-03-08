@@ -27,7 +27,14 @@ if (isset($_POST['nickname'])) {
 }
 
 if (isset($_POST['delete'])) {
-    echo 'success';
     $nickname = $_POST['delete'];
     $db->query("DELETE FROM wizard WHERE nickname='$nickname'") or die($db->error);
+    echo 'success';
+}
+
+
+if (isset($_POST['update'])) {
+    $nickname = $_POST['update'];
+    $db->query("DELETE FROM wizard WHERE nickname='$nickname'") or die($db->error);
+    echo 'success';
 }

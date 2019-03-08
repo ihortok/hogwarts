@@ -137,4 +137,23 @@ $('document').ready(function () {
         return false;
     });
 
+    $("#edit").click(function () {
+        var table = $('.user_page table');
+        var nickname = $(this).attr('data-nickname');
+        var gender = table.find("td[data-field='sex']").text();
+        $('.register-form label.label').each(function () {
+            if ($(this).children('input').length > 0) {
+                $(this).children('input').val(table.find("td[data-field='" + $(this).children('input').attr('name') + "']").text());
+            } else if ($(this).children('select').length > 0) {
+                $(this).children('select').find("option[value='" + table.find("td[data-field='" + $(this).children('select').attr('name') + "']").text() + "']").attr('selected', true);
+            } else {
+                console.log(table.find("td[data-field='" + $(this).children('label:eq(0)').find('input').attr('name') + "']").text());
+                $(this).find("input[value='" + table.find("td[data-field='" + $(this).children('label:eq(0)').find('input').attr('name') + "']").text() + "']").prop('checked');
+            }
+        });
+        $(".register-form input[name='nickname']").val(nickname);
+        $(".register-form input[value='" + gender + "']").prop("checked", true);
+        $('.register-form').show();
+    });
+
 });
