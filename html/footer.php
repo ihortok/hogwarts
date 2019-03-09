@@ -37,7 +37,8 @@
                 </label>
                 <label class="label">
                     <span>Age:</span>
-                    <input type="number" name="age" value="11" min="11" max="999" id="wizard_age">
+                    <input type="number" name="age" value="11" min="11" max="999" id="wizard_age"
+                           oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
                 </label>
                 <label class="label">
                     <span>Patronum:</span>

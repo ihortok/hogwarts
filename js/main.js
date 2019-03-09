@@ -88,7 +88,7 @@ $('document').ready(function () {
             success: function (response) {
                 if (response === "success") {
                     $(".register-form").removeAttr('style');
-                    $(".register-form input").val('');
+                    $(".register-form input[type='text']").val('');
                     if (edit === true) {
                         $.each(fields, function (key, value) {
                             $(".user_page td[data-field='" + key + "']").text(value);
@@ -174,10 +174,6 @@ $('document').ready(function () {
     $("#reset_wizard").click(function () {
         $(this).parents('form').find('input').val('');
         $(this).parents('form').find("input[name='age']").val(11);
-    });
-
-    $('#wizard_age').keydown(function () {
-        return false;
     });
 
 });
